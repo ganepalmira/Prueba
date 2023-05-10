@@ -1,0 +1,25 @@
+{
+	"data": [
+		{
+			"codigo": "1001",
+			"nombre": "Impresora TMU",
+			"referencia": "TMU 220",
+			"marca": "EPSON",
+			"estado": "Activo"
+		},
+		{
+			"codigo": "1002",
+			"nombre": "Portatil",
+			"referencia": "Legion 15.6",
+			"marca": "Lenovo",
+			"estado": "Activo"
+		},
+		{
+			"codigo": "1003",
+			"nombre": "PC Genérico",
+			"referencia": "Core i5 3ra",
+			"marca": "Genérico",
+			"estado": "Activo"
+		}
+	]
+}

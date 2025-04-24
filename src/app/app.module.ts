@@ -20,11 +20,21 @@ import { AppComponent } from './app.component';
 import { CardModule} from 'primeng/card';
 import { TabViewModule } from 'primeng/tabview';
 import {ToastModule} from 'primeng/toast';
+import { ListMovimientosComponent } from './components/movimientos/list-movimientos/list-movimientos.component';
+import { AddMovimientoComponent } from './components/movimientos/add-movimiento/add-movimiento.component';
+import { ListUbicacionesComponent  } from './components/ubicaciones/list-ubicaciones.component';
+import { ListActivosComponent } from './components/activos/list-activos/list-activos.component';
+import { AddEditActivoComponent } from './components/activos/add-edit-activos/add-edit-activo.component';
 
 
 @NgModule({
     declarations: [
-        AppComponent
+        AppComponent,
+        ListMovimientosComponent,
+        AddMovimientoComponent, 
+        ListUbicacionesComponent,
+        ListActivosComponent,
+        AddEditActivoComponent
     ],
     imports: [
         BrowserModule,

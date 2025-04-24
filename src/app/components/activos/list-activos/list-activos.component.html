@@ -1,0 +1,26 @@
+<p-table [value]="activos" selectionMode="single" [(selection)]="selectedActivo">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Código</th>
+        <th>Nombre</th>
+        <th>Referencia</th>
+        <th>Marca</th>
+        <th>Estado</th>
+        <th>Acciones</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-activo>
+      <tr>
+        <td>{{ activo.codigo }}</td>
+        <td>{{ activo.nombre }}</td>
+        <td>{{ activo.referencia }}</td>
+        <td>{{ activo.marca }}</td>
+        <td>{{ activo.estado }}</td>
+        <td>
+          <button pButton label="Editar" class="p-button-sm p-button-warning"></button>
+          <button pButton label="Eliminar" class="p-button-sm p-button-danger" (click)="deleteActivo(activo)"></button>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+  

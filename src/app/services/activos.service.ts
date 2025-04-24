@@ -8,12 +8,24 @@ import { Observable } from 'rxjs';
 })
 export class ActivosService {
 
-  urlActivos:string=`http://127.0.0.1:1001/api/v1/activos/findAll`
+  urlActivos:string=`http://localhost:1001/api/v1/activos/findAll`
 
   constructor(public httpClient:HttpClient) { }
 
   getActivos(): Observable<Activos[]> {
     return this.httpClient.get<Activos[]>(this.urlActivos).pipe();
+  }
+
+  crearActivo(activo: Activos): Observable<Activos> {
+    return this.httpClient.post<Activos>(`${this.urlActivos}/crear`, activo);
+  }
+
+  actualizarActivo(activo: Activos): Observable<Activos> {
+    return this.httpClient.put<Activos>(`${this.urlActivos}/actualizar/${activo.codigo}`, activo);
+  }
+
+  eliminarActivo(codigo: string): Observable<void> {
+    return this.httpClient.delete<void>(`${this.urlActivos}/eliminar/${codigo}`);
   }
 
 }

@@ -1,0 +1,36 @@
+<p-dialog header="Formulario de Activo" [(visible)]="displayDialog" [modal]="true" [style]="{width: '400px'}">
+    <div class="p-fluid">
+      <div class="p-field">
+        <label for="nombre">Descripción</label>
+        <input id="nombre" type="text" pInputText [(ngModel)]="activo.nombre" />
+      </div>
+  
+      <div class="p-field">
+        <label for="referencia">Referencia</label>
+        <input id="referencia" type="text" pInputText [(ngModel)]="activo.referencia" />
+      </div>
+  
+      <div class="p-field">
+        <label for="estado">Estado</label>
+        <input id="estado" type="text" pInputText [(ngModel)]="activo.estado" />
+      </div>
+  
+      <div class="p-field">
+        <label for="marca">Marca</label>
+        <p-dropdown
+          id="marca"
+          [options]="marcas"
+          optionLabel="nombre"
+          optionValue="codigo"
+          [(ngModel)]="activo.marca"
+          placeholder="Seleccione una marca">
+        </p-dropdown>
+      </div>
+    </div>
+  
+    <ng-template pTemplate="footer">
+      <button pButton label="Cancelar" icon="pi pi-times" class="p-button-text" (click)="cerrar()"></button>
+      <button pButton label="Guardar" icon="pi pi-check" (click)="guardarActivo()"></button>
+    </ng-template>
+  </p-dialog>
+  

@@ -1,0 +1,43 @@
+<div class="p-4 max-w-xl mx-auto">
+    <h2 class="text-2xl font-bold mb-4">Agregar Movimiento</h2>
+  
+    <form (ngSubmit)="saveMovimiento()" #movimientoForm="ngForm" class="space-y-4">
+  
+      <div>
+        <label class="block mb-1 font-semibold">Activo</label>
+        <select [(ngModel)]="movimiento.activoCodigo" name="activo" class="w-full border rounded p-2" required>
+          <option *ngFor="let activo of activos" [value]="activo.codigo">
+            {{ activo.nombre }}
+          </option>
+        </select>
+      </div>
+  
+      <div>
+        <label class="block mb-1 font-semibold">Ubicación Origen</label>
+        <select [(ngModel)]="movimiento.ubicacionOrigen" name="ubicacionOrigen" class="w-full border rounded p-2" required>
+          <option *ngFor="let ubicacion of ubicaciones" [value]="ubicacion.codigo">
+            {{ ubicacion.nombre }}
+          </option>
+        </select>
+      </div>
+  
+      <div>
+        <label class="block mb-1 font-semibold">Ubicación Destino</label>
+        <select [(ngModel)]="movimiento.ubicacionDestino" name="ubicacionDestino" class="w-full border rounded p-2" required>
+          <option *ngFor="let ubicacion of ubicaciones" [value]="ubicacion.codigo">
+            {{ ubicacion.nombre }}
+          </option>
+        </select>
+      </div>
+  
+      <div>
+        <label class="block mb-1 font-semibold">Fecha</label>
+        <input type="date" [(ngModel)]="movimiento.fecha" name="fecha" class="w-full border rounded p-2" required>
+      </div>
+  
+      <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+        Guardar
+      </button>
+    </form>
+  </div>
+  

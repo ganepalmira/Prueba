@@ -1,0 +1,23 @@
+<div class="p-4">
+    <h2 class="text-2xl font-bold mb-4">Movimientos de Activos</h2>
+  
+    <table class="table-auto w-full border-collapse border border-gray-300">
+      <thead>
+        <tr class="bg-gray-100">
+          <th class="border px-4 py-2">Activo</th>
+          <th class="border px-4 py-2">Ubicación Origen</th>
+          <th class="border px-4 py-2">Ubicación Destino</th>
+          <th class="border px-4 py-2">Fecha</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let movimiento of movimientos">
+          <td class="border px-4 py-2">{{ movimiento.activo.nombre }}</td>
+          <td class="border px-4 py-2">{{ movimiento.ubicacionOrigen.nombre }}</td>
+          <td class="border px-4 py-2">{{ movimiento.ubicacionDestino.nombre }}</td>
+          <td class="border px-4 py-2">{{ movimiento.fecha | date: 'shortDate' }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

@@ -1,27 +1,17 @@
-# PrimeNG Angular-CLI
+# PRUEBA TÉCNICA
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.
+La empresa requiere de una aplicación que le permita llevar el control de sus activos fijos, para esto se le encargó al área de desarrollo crear un aplicativo que permita la gestión de dichos activos (crear, editar, eliminar), también se requiere que el aplicativo permita hacer el movimiento de los activos entre las diferentes áreas de la empresa y poder visualizar la ubicación de cada uno de los activos y su historial de movimientos.
 
-## Development server
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Para dar solución a los requisitos se requiere:
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive/pipe/service/class/module`.
+•	Realizar el desarrollo y mejoras necesarias en el microservicio desarrollado en SpringBoot para gestionar activos (consultar, crear, editar y eliminar), gestionar movimientos (consultar, crear), gestionar ubicaciones (consultar), otros que considere necesarios.
 
-## Build
+•	Realizar el desarrollo y mejoras necesarias en el Frontend de Angular el cual tenga dos vistas, una para crear y consultar activos y la otra para crear y consultar movimientos, otros que considere necesarios.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+•	Cree las tablas que considere necesarias en su base de datos local de PostgreSql.
 
-## Running unit tests
+Nota: Cada aspirante tiene creado su propio Branch, todos los commits deben ser enviados en la hora indicada, pasada la hora el repositorio dejará de ser público y usted no podrá enviar más cambios a su Branch.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+![image](https://github.com/user-attachments/assets/4ba6b3fa-e328-469c-a62f-a19edb912973)
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).

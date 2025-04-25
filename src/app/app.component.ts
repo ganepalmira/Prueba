@@ -21,6 +21,9 @@ export class AppComponent implements OnInit {
 
     submitted: boolean;
 
+    selectedActivo: Activos = new Activos();
+    showAddEditDialog: boolean = false;
+
     constructor(private activosService: ActivosService, private messageService: MessageService, private confirmationService: ConfirmationService) { }
 
     ngOnInit() {
@@ -34,29 +37,30 @@ export class AppComponent implements OnInit {
           });
     }
 
+     
     openNew() {
-        this.submitted = false;
-        this.activoDialog = true;
+        this.selectedActivo = new Activos(); 
+        this.showAddEditDialog = true;
+    }
 
-        this.messageService.add({severity:'error', summary: 'Error', detail: "Ups, debes desarrollar esto"});
+       
+    hideAddEditDialog() {
+        this.showAddEditDialog = false;
+    }
+
+      
+    saveActivo(activo: Activos) {
+        this.activos.push({ ...activo });
+        this.showAddEditDialog = false;
     }
 
     editProduct(activo: Activos) {
-        this.messageService.add({severity:'error', summary: 'Error', detail: "Ups, debes desarrollar esto"});
+        this.selectedActivo = { ...activo };
+        this.showAddEditDialog = true;
     }
 
     deleteProduct(activo: Activos) {
-        this.messageService.add({severity:'error', summary: 'Error', detail: "Ups, debes desarrollar esto"});
-    }
-
-    hideDialog() {
-        this.activoDialog = false;
-        this.submitted = false;
-    }
-    
-    saveProduct() {
-        this.submitted = true;
-        this.messageService.add({severity:'error', summary: 'Error', detail: "Ups, debes desarrollar esto"});
+        this.activos = this.activos.filter(a => a !== activo);
     }
 
 }

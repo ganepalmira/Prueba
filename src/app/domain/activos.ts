@@ -1,9 +1,11 @@
+import { Marca } from './marca.model';
+
 export class Activos {
 
     codigo: string;
     nombre: string;
     referencia: string;
-    marca: string;
+    marca: Marca;  
     estado: string;
 
 }

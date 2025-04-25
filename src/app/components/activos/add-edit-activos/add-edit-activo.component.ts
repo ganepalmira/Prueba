@@ -26,7 +26,7 @@ export class AddEditActivoComponent implements OnInit {
   }
 
   guardarActivo() {
-    this.onSave.emit(this.activo); // Envía el activo al componente padre
+    this.onSave.emit(this.activo);
     this.cerrar();
   }
 

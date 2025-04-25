@@ -69,6 +69,13 @@
         <button pButton pRipple label="Cancelar" icon="pi pi-times" class="p-button-text" (click)="hideDialog()"></button>
         <button pButton pRipple label="Guardar" icon="pi pi-check" class="p-button-text" (click)="saveProduct()"></button>
     </ng-template>
-</p-dialog>
+</p-dialog>  
+
+<app-add-edit-activo 
+  [(displayDialog)]="showAddEditDialog"
+  [activo]="selectedActivo"
+  (onClose)="hideAddEditDialog()"
+  (onSave)="saveActivo($event)">
+</app-add-edit-activo>
 
 <p-confirmDialog [style]="{width: '450px'}"></p-confirmDialog>

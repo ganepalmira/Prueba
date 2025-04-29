@@ -10,7 +10,7 @@
             </div>
             <div>
                 <p-table #dt [value]="activos" [rows]="5" [paginator]="true" styleClass="p-datatable-sm"
-                    [rowHover]="true" dataKey="id"
+                    [rowHover]="true" dataKey="codigo"
                     currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
                     <ng-template pTemplate="caption">
                         <div class="flex align-items-center justify-content-between">
@@ -24,7 +24,8 @@
                             <th>Referencia</th>
                             <th>Marca</th>
                             <th>Estado</th>
-                            <th>Ubicación<th>
+                            <th>Ubicación</th>
+                            <th>Acciones</th>
                         </tr>
                     </ng-template>
                     <ng-template pTemplate="body" let-activo>
@@ -61,7 +62,7 @@
 
 
 <!-- Diálogo creación de activos -->
-<p-dialog [(visible)]="activoDialog" [style]="{width: '450px'}" header="Crear Activo" [modal]="true" styleClass="p-fluid">
+<!-- <p-dialog [(visible)]="activoDialog" [style]="{width: '450px'}" header="Crear Activo" [modal]="true" styleClass="p-fluid">
     <ng-template pTemplate="content">
         
     </ng-template>
@@ -70,11 +71,12 @@
         <button pButton pRipple label="Cancelar" icon="pi pi-times" class="p-button-text" (click)="hideDialog()"></button>
         <button pButton pRipple label="Guardar" icon="pi pi-check" class="p-button-text" (click)="saveProduct()"></button>
     </ng-template>
-</p-dialog>  
+</p-dialog>   -->
 
 <app-add-edit-activo 
   [(displayDialog)]="showAddEditDialog"
   [activo]="selectedActivo"
+  [esEdicion]="esEdicion"
   (onClose)="hideAddEditDialog()"
   (onSave)="saveActivo($event)">
 </app-add-edit-activo>

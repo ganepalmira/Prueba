@@ -21,11 +21,11 @@ export class ActivosService {
   }
 
   actualizarActivo(activo: Activos): Observable<Activos> {
-    return this.httpClient.put<Activos>(`${this.urlActivos}/actualizar/${activo.codigo}`, activo);
+    return this.httpClient.put<Activos>(`${this.urlActivos}/update/${activo.codigo}`, activo);
   }
 
   eliminarActivo(codigo: string): Observable<void> {
-    return this.httpClient.delete<void>(`${this.urlActivos}/eliminar/${codigo}`);
+    return this.httpClient.delete<void>(`${this.urlActivos}/delete/${codigo}`);
   }
 
 }

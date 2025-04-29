@@ -1,8 +1,8 @@
 <p-dialog header="Formulario de Activo" [(visible)]="displayDialog" [modal]="true" [style]="{width: '400px'}">
     <div class="p-fluid">
-      <div class="p-field">
+      <div class="p-field" *ngIf="activo.codigo">
         <label for="codigo">Código</label>
-        <input id="codigo" type="text" pInputText [(ngModel)]="activo.codigo" />
+        <input id="codigo" type="text" pInputText [(ngModel)]="activo.codigo" disabled />
       </div>
 
       <div class="p-field">

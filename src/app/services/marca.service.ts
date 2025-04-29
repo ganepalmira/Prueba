@@ -7,12 +7,12 @@ import { Marca } from '../domain/marca.model';
   providedIn: 'root'
 })
 export class MarcaService {
-  private apiUrl = 'https://zany-succotash-q76r4p5gq6c4rqv-8080.app.github.dev/api/v1/marcas/findAll';
+  private apiUrl = 'https://zany-succotash-q76r4p5gq6c4rqv-8080.app.github.dev/api/v1/marcas';
 
   constructor(private http: HttpClient) {}
 
   getMarcas(): Observable<Marca[]> {
-    return this.http.get<Marca[]>(this.apiUrl).pipe();
+    return this.http.get<Marca[]>(`${this.apiUrl}/findAll`);
   }
 
   createMarca(marca: Marca): Observable<Marca> {

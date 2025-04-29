@@ -7,7 +7,7 @@ import { Ubicacion } from '../domain/ubicacion.model';
   providedIn: 'root'
 })
 export class UbicacionService {
-  private apiUrl = 'http://localhost:1001/api/v1/ubicaciones';
+  private apiUrl = 'https://zany-succotash-q76r4p5gq6c4rqv-8080.app.github.dev/api/v1/ubicaciones';
 
   constructor(private http: HttpClient) {}
 

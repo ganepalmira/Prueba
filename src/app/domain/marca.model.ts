@@ -1,5 +1,5 @@
 export interface Marca {
-    codigo: number;
-    nombre: string;
+    codMarca: number;
+    descripcion: string;
   }
   

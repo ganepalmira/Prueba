@@ -1,7 +1,12 @@
 <p-dialog header="Formulario de Activo" [(visible)]="displayDialog" [modal]="true" [style]="{width: '400px'}">
     <div class="p-fluid">
       <div class="p-field">
-        <label for="nombre">Descripción</label>
+        <label for="codigo">Código</label>
+        <input id="codigo" type="text" pInputText [(ngModel)]="activo.codigo" />
+      </div>
+
+      <div class="p-field">
+        <label for="nombre">Nombre Activo</label>
         <input id="nombre" type="text" pInputText [(ngModel)]="activo.nombre" />
       </div>
   
@@ -12,21 +17,36 @@
   
       <div class="p-field">
         <label for="estado">Estado</label>
-        <input id="estado" type="text" pInputText [(ngModel)]="activo.estado" />
+        <p-dropdown
+          id="estado"
+          [options]="estadoOptions"
+          [(ngModel)]="activo.estado"
+          placeholder="Seleccione estado">
+        </p-dropdown>
       </div>
   
-      <div class="p-field">
+       <div class="p-field">
         <label for="marca">Marca</label>
-        <p-dropdown
+          <p-dropdown
           id="marca"
           [options]="marcas"
-          optionLabel="nombre"
-          optionValue="codigo"
+          optionLabel="descripcion"
           [(ngModel)]="activo.marca"
           placeholder="Seleccione una marca">
         </p-dropdown>
       </div>
-    </div>
+
+      <div class="p-field">
+        <label for="ubicacion">Ubicación</label>
+        <p-dropdown
+          id="ubicacion"
+          [options]="ubicaciones"
+          optionLabel="descripcion"
+          [(ngModel)]="activo.ubicacionActual"
+          placeholder="Seleccione una ubicación">
+        </p-dropdown>
+      </div>
+  </div>
   
     <ng-template pTemplate="footer">
       <button pButton label="Cancelar" icon="pi pi-times" class="p-button-text" (click)="cerrar()"></button>

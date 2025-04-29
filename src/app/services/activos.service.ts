@@ -8,16 +8,16 @@ import { Observable } from 'rxjs';
 })
 export class ActivosService {
 
-  urlActivos:string=`https://zany-succotash-q76r4p5gq6c4rqv-8080.app.github.dev/api/v1/activos/findAll`
+  urlActivos:string=`https://zany-succotash-q76r4p5gq6c4rqv-8080.app.github.dev/api/v1/activos`
 
   constructor(public httpClient:HttpClient) { }
 
   getActivos(): Observable<Activos[]> {
-    return this.httpClient.get<Activos[]>(this.urlActivos).pipe();
+    return this.httpClient.get<Activos[]>(`${this.urlActivos}/findAll`);
   }
 
   crearActivo(activo: Activos): Observable<Activos> {
-    return this.httpClient.post<Activos>(`${this.urlActivos}/crear`, activo);
+    return this.httpClient.post<Activos>(`${this.urlActivos}/create`, activo);
   }
 
   actualizarActivo(activo: Activos): Observable<Activos> {

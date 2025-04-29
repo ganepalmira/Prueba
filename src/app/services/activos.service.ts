@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class ActivosService {
 
-  urlActivos:string=`http://localhost:1001/api/v1/activos/findAll`
+  urlActivos:string=`https://zany-succotash-q76r4p5gq6c4rqv-8080.app.github.dev/api/v1/activos/findAll`
 
   constructor(public httpClient:HttpClient) { }
 

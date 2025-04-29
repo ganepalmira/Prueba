@@ -24,7 +24,7 @@
                             <th>Referencia</th>
                             <th>Marca</th>
                             <th>Estado</th>
-                            <th></th>
+                            <th>Ubicación<th>
                         </tr>
                     </ng-template>
                     <ng-template pTemplate="body" let-activo>
@@ -32,8 +32,9 @@
                             <td>{{activo.codigo}}</td>
                             <td>{{activo.nombre}}</td>
                             <td>{{activo.referencia}}</td>
-                            <td>{{activo.marca}}</td>
+                            <td>{{activo.marca?.nombre}}</td>
                             <td>{{activo.estado}}</td>
+                            <td>{{activo.ubicacionActual?.nombre}}</td>
                             <td>
                                 <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" (click)="editProduct(activo)"></button>
                                 <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="deleteProduct(activo)"></button>

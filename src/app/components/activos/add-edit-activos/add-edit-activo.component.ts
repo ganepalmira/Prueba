@@ -11,7 +11,7 @@ import { MarcaService } from 'src/app/services/marca.service';
 export class AddEditActivoComponent implements OnInit {
 
   @Input() displayDialog: boolean = false;
-  @Input() activo: Activos = new Activos(); // se reutiliza para crear o editar
+  @Input() activo: Activos = new Activos(); 
   @Output() onClose = new EventEmitter<void>();
   @Output() onSave = new EventEmitter<Activos>();
 

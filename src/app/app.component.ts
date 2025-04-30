@@ -4,6 +4,9 @@ import { Product } from './domain/product';
 import { ProductService } from './services/productservice';
 import { Activos } from './domain/activos';
 import { ActivosService } from './services/activos.service';
+import { ViewChild } from '@angular/core';
+import { Table } from 'primeng/table';
+
 
 @Component({
     selector: 'app-root',
@@ -14,18 +17,19 @@ import { ActivosService } from './services/activos.service';
 export class AppComponent implements OnInit {
 
     activoDialog: boolean;
-
     activos: Activos[];
-
     activo: Activos;
-
     submitted: boolean;
-
     selectedActivo: Activos = new Activos();
     showAddEditDialog: boolean = false;
     esEdicion: boolean = false; 
 
-    constructor(private activosService: ActivosService, private messageService: MessageService, private confirmationService: ConfirmationService) { }
+    @ViewChild('dt') table: Table;
+
+    constructor(
+      private activosService: ActivosService, 
+      private messageService: MessageService, 
+      private confirmationService: ConfirmationService) { }
 
     ngOnInit() {
         this.cargarActivos();
@@ -33,7 +37,9 @@ export class AppComponent implements OnInit {
 
     cargarActivos() {
         this.activosService.getActivos().subscribe({
-          next: data => this.activos = data,
+          next: data => {
+            this.activos = [...data];
+          },
           error: err => console.error('Error al cargar activos:', err)
         });
     }
@@ -53,49 +59,43 @@ export class AppComponent implements OnInit {
         this.showAddEditDialog = false;
     }
 
-      
-    saveActivo(activo: Activos) {
-        if (activo.codigo) {
-          this.activosService.actualizarActivo(activo).subscribe({
-            next: () => {
-              this.messageService.add({ severity: 'success', summary: 'Éxito', detail: 'Activo actualizado correctamente' });
-              this.cargarActivos();
-              this.showAddEditDialog = false;
-            },
-            error: err => console.error('Error al actualizar activo', err)
-          });
-        } else {
-          this.activosService.crearActivo(activo).subscribe({
-            next: () => {
-              this.messageService.add({ severity: 'success', summary: 'Éxito', detail: 'Activo creado correctamente' });
-              this.cargarActivos();
-              this.showAddEditDialog = false;
-            },
-            error: err => console.error('Error al crear activo', err)
-          });
-        }        
-      }
-
     editProduct(activo: Activos) {
         this.selectedActivo = { ...activo };
         this.esEdicion = true;
         this.showAddEditDialog = true;
     }
 
+    handleSave(activo: Activos) {
+      this.messageService.add({
+        severity: 'success',
+        summary: 'Éxito',
+        detail: this.esEdicion ? 'Activo actualizado correctamente' : 'Activo creado correctamente'
+      });
+      this.showAddEditDialog = false;
+      this.cargarActivos();
+      this.table.reset();
+    }
+
     deleteProduct(activo: Activos) {
-        this.confirmationService.confirm({
-          message: '¿Estás seguro de que deseas eliminar este activo?',
-          header: 'Confirmar eliminación',
-          icon: 'pi pi-exclamation-triangle',
-          accept: () => {
-            this.activosService.eliminarActivo(activo.codigo!).subscribe({
-              next: () => {
-                this.messageService.add({ severity: 'success', summary: 'Eliminado', detail: 'Activo eliminado correctamente' });
-                this.cargarActivos();
-              },
-              error: err => console.error('Error al eliminar activo', err)
-            });
-          }
-        });
+      console.log('Se aceptó la eliminación'); 
+      this.confirmationService.confirm({
+        message: '¿Estás seguro de que deseas eliminar este activo?',
+        header: 'Confirmar eliminación',
+        icon: 'pi pi-exclamation-triangle',
+        accept: () => {
+          this.activosService.eliminarActivo(activo.codigo!).subscribe({
+            next: () => {
+              this.messageService.add({
+                severity: 'success',
+                summary: 'Eliminado',
+                detail: 'Activo eliminado correctamente'
+              });
+              this.cargarActivos();       
+              setTimeout(() => this.table.reset());        
+            },
+            error: err => console.error('Error al eliminar activo', err)
+          });
+        }
+      });
       }
 }

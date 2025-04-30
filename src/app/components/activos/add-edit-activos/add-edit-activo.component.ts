@@ -81,20 +81,6 @@ export class AddEditActivoComponent implements OnInit {
       });
     }
   }
-
-  // guardarActivo(activo: Activos) {
-  //   this.activoService.crearActivo(this.activo).subscribe({
-  //     next: (nuevoActivo) => {
-  //       this.onSave.emit(nuevoActivo); 
-  //       this.displayDialog = false;
-  //       this.cerrar();
-  //     },
-  //     error: (err) => {
-  //       console.error('Error al guardar activo', err);
-  //     }
-  //   });
-  // }
-
   cerrar() {
     this.onClose.emit();
   }

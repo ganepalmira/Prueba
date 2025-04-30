@@ -15,6 +15,7 @@ import { RadioButtonModule } from 'primeng/radiobutton';
 import { RatingModule } from 'primeng/rating';
 import { ToolbarModule } from 'primeng/toolbar';
 import { ConfirmationService } from 'primeng/api';
+import { MessageService } from 'primeng/api';
 
 import { AppComponent } from './app.component';
 import { CardModule} from 'primeng/card';
@@ -56,7 +57,7 @@ import { AddEditActivoComponent } from './components/activos/add-edit-activos/ad
 		TabViewModule,
         ToastModule
     ],
-    providers: [ConfirmationService],
+    providers: [ConfirmationService,MessageService],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

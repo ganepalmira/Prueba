@@ -20,8 +20,10 @@ export class ActivosService {
     return this.httpClient.post<Activos>(`${this.urlActivos}/create`, activo);
   }
 
-  actualizarActivo(activo: Activos): Observable<Activos> {
-    return this.httpClient.put<Activos>(`${this.urlActivos}/update/${activo.codigo}`, activo);
+  actualizarActivo(activo: Activos): Observable<any> {
+    return this.httpClient.put(`${this.urlActivos}/update/${activo.codigo}`, activo, {
+      responseType: 'text'
+    });
   }
 
   eliminarActivo(codigo: string): Observable<void> {
